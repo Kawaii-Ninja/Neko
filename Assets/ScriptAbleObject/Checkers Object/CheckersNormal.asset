@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b49bee03c03d443a286fd7defd5993, type: 3}
+  m_Name: CheckersNormal
+  m_EditorClassIdentifier: 
+  velocity: 554
+  _Id: 2
+  _checkerSprit:
+  - {fileID: 6299221764421534401, guid: c825ce5150e56f84785685b587118606, type: 3}
+  - {fileID: 9093132668532395140, guid: 32ac149a65c118c4a9bb0b180a3fd344, type: 3}
+  _checkerName:
+  - checker1
+  - checker2
+  point: 350
+  _spawnRate: 100
+  _checkersType: 2
+  _checkerSize: 2

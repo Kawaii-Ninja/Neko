@@ -1,0 +1,4 @@
+repository "Neko@Kawaii_Tristan@cloud"
+  path "/"
+    br "/main"
+    co "/main"
