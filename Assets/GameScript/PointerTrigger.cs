@@ -3,6 +3,7 @@ using UnityEngine;
 public class PointerTrigger : MonoBehaviour
 {
     CheckerLogic checkerLogic;
+    GameObject _curentChecker;
     UniversalPlayerData upd;
     ScoreManager scoreManager;
     ComboStreak comboStreak;
@@ -30,6 +31,7 @@ public class PointerTrigger : MonoBehaviour
         {
             onCircle = true; // Set the state if the object is on the circle.
             checkerLogic = collider.gameObject.GetComponent<CheckerLogic>(); // Get the CheckerLogic component.
+            _curentChecker = collider.gameObject;
         }
     }
 
@@ -51,11 +53,14 @@ public class PointerTrigger : MonoBehaviour
         if (onCircle && !UniversalPlayerData.isGamePaused && !UniversalPlayerData.isGameOver)
         {
             // Check if the 'T' key or the left mouse button is clicked.
-            if (Input.GetKeyDown(KeyCode.T) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.T) && checkerLogic.onLine || Input.GetMouseButtonDown(0) && checkerLogic.onLine)
             {
                 // Get the score points and destroy the checker object.
                 scoreManager.GetScore(checkerLogic.checkers.point);
-                Destroy(checkerLogic.gameObject, 0.1f);
+                // _curentChecker.GetComponent<CheckerLogic>().velocity = 0;
+                _curentChecker.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                _curentChecker.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10000f);
+                Destroy(checkerLogic.gameObject, .4f);
                 ResetPlayerMissedStreak(); // Reset the player's missed streak.
                 AddCombo(); // Increment the combo streak.
                 comboStreak.IncreaseCombo(); // Increase the combo.

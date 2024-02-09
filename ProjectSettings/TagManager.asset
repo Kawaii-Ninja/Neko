@@ -8,6 +8,7 @@ TagManager:
   - ENDZONE
   - Cursor
   - Checkers
+  - Line
   layers:
   - Default
   - TransparentFX

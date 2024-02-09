@@ -7,6 +7,7 @@ public class GameLogic : MonoBehaviour
     public UniversalPlayerData upd;
     [SerializeField] GameObject _cursor;
     [SerializeField] GameObject parentObject;
+    [SerializeField] GameObject[] _base;
     public List<Checkers> checkerData = new();
 
     private void Start()
@@ -41,13 +42,20 @@ public class GameLogic : MonoBehaviour
     void InstantiateChecker()
     {
         Checkers currentSpawnedChecker = GetChecker();
+        int randomNum = RandomNumber();
 
         if (currentSpawnedChecker != null)
         {
             GameObject checker = currentSpawnedChecker._checkerSprit[Random.Range(0, currentSpawnedChecker._checkerSprit.Length)];
-            GameObject checkers = Instantiate(checker, new Vector2(Random.Range(-7, 7), 8), Quaternion.identity);
+            GameObject checkers = Instantiate(checker, new Vector2(_base[randomNum].transform.position.x, 8), Quaternion.identity);
             checkers.transform.SetParent(parentObject.transform);
         }
+    }
+
+    int RandomNumber()
+    {
+        int random = Random.Range(0, 5);
+        return random;
     }
 
     // Delay each spawn to allow time before spawning the next object.
