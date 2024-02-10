@@ -30,8 +30,8 @@ public class RedZone : MonoBehaviour
             // Assign the game object to the 'ball' variable.
             ball = collider.gameObject;
             // Assign components to references.
-            upd = FindObjectOfType<UniversalPlayerData>();
-            timerCom = FindObjectOfType<Timer>();
+            upd = Object.FindFirstObjectByType<UniversalPlayerData>();
+            timerCom = Object.FindFirstObjectByType<Timer>();
         }
     }
 
