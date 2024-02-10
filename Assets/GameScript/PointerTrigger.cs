@@ -56,11 +56,10 @@ public class PointerTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.T) && checkerLogic.onLine || Input.GetMouseButtonDown(0) && checkerLogic.onLine)
             {
                 // Get the score points and destroy the checker object.
+                Destroy(checkerLogic.gameObject, .3f);
                 scoreManager.GetScore(checkerLogic.checkers.point);
-                // _curentChecker.GetComponent<CheckerLogic>().velocity = 0;
-                _curentChecker.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                _curentChecker.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10000f);
-                Destroy(checkerLogic.gameObject, .4f);
+                _curentChecker.GetComponent<CheckerLogic>().velocity = 0;
+                _curentChecker.GetComponent<Animator>().SetTrigger("die");
                 ResetPlayerMissedStreak(); // Reset the player's missed streak.
                 AddCombo(); // Increment the combo streak.
                 comboStreak.IncreaseCombo(); // Increase the combo.
