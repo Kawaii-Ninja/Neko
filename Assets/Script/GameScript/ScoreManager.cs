@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         // Find the UniversalPlayerData object in the scene and initialize its current score.
-        upd = FindObjectOfType<UniversalPlayerData>();
+        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
         upd.currentScore = 0;
         upd.highScore = GetHighScore();
     }

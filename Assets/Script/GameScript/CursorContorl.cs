@@ -7,7 +7,7 @@ public class CursorControl : MonoBehaviour
     private void Start()
     {
         // Find and assign reference to UniversalPlayerData component.
-        upd = GameObject.FindObjectOfType<UniversalPlayerData>();
+        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
 
         // Hide the cursor at the start of the game.
         Cursor.visible = false;

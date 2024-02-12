@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         // Find the UniversalPlayerData object in the scene and initialize its current score.
-        upd = FindObjectOfType<UniversalPlayerData>();
+        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
         time = initialTime;
         StartCoroutine(StartCountdown());
     }
