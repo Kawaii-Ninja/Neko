@@ -86,4 +86,6 @@ public class CheckerLogic : MonoBehaviour
             animator.speed = 0;
         }
     }
+
+
 }

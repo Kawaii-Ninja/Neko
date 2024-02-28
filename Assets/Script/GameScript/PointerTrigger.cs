@@ -29,6 +29,7 @@ public class PointerTrigger : MonoBehaviour
         // Check if the object's tag is correct.
         if (collider.CompareTag("Checkers"))
         {
+            // Debug.Log("Entered");
             onCircle = true; // Set the state if the object is on the circle.
             checkerLogic = collider.gameObject.GetComponent<CheckerLogic>(); // Get the CheckerLogic component.
             _curentChecker = collider.gameObject;
@@ -41,6 +42,7 @@ public class PointerTrigger : MonoBehaviour
         // Check if the object's tag is correct.
         if (collider.CompareTag("Checkers"))
         {
+            // Debug.Log("Exited");
             onCircle = false; // Set the state if the object is out of the circle.
             checkerLogic = null; // Clear the CheckerLogic component.
         }

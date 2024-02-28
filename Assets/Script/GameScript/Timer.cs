@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SocialPlatforms;
 
 public class Timer : MonoBehaviour
 {
     UniversalPlayerData upd;
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] Image timerBar;
+    [SerializeField] Slider timeSlider;
     [SerializeField] float initialTime = 60f;
 
     public float time;
@@ -34,11 +35,10 @@ public class Timer : MonoBehaviour
     
     private void UpdateTimerBar()
     {
-        if (timerBar != null)
+        if (timeSlider != null)
         {
             float lerpSpeed = 3f * Time.deltaTime;
-            float targetFillAmount = Mathf.Clamp(time / initialTime, 0f, 1f);
-            timerBar.fillAmount = Mathf.Lerp(timerBar.fillAmount, targetFillAmount, lerpSpeed);
+            timeSlider.value = Mathf.Lerp(timeSlider.value, time, lerpSpeed);
         }
     }
 

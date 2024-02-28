@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour
@@ -9,6 +10,8 @@ public class GameLogic : MonoBehaviour
     [SerializeField] GameObject parentObject;
     [SerializeField] GameObject[] _base;
     public List<Checkers> checkerData = new();
+    [SerializeField] MusicPlayer musicPlayer;
+    [SerializeField] AudioVisualizer audioVisualizer;
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class GameLogic : MonoBehaviour
         {
             upd.isPlaying = true;
             StartCoroutine(SpawnDelay());
+            AudioPlayer();
         }
     }
 
@@ -72,7 +76,23 @@ public class GameLogic : MonoBehaviour
     void SpawnCursor()
     {
         GameObject cursor = Instantiate(_cursor);
-        cursor.AddComponent<CursorControl>();
-        cursor.AddComponent<PointerTrigger>();
+        Transform childTransform = cursor.transform.GetChild(1);
+        if (childTransform != null)
+        {
+            // Add components to the specific child
+            cursor.AddComponent<CursorControl>();
+            childTransform.gameObject.AddComponent<PointerTrigger>();
+        }
+        else
+        {
+            Debug.LogError("Child not found");
+        }
     }
+
+    // Play music
+private void AudioPlayer()
+{
+    musicPlayer.audioSource.clip = audioVisualizer.audioClip; // Assign the clip
+    musicPlayer.audioSource.Play(); // Play the assigned clip
+}
 }

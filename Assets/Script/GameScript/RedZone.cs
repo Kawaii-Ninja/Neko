@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RedZone : MonoBehaviour
@@ -53,7 +54,7 @@ public class RedZone : MonoBehaviour
     // Reset the combo.
     private void ResetCombo()
     {
-        upd.combo = 0;
+        StartCoroutine(ComboLost());
     }
 
     // Add missed streaks.
@@ -61,5 +62,14 @@ public class RedZone : MonoBehaviour
     {
         upd.missedStreaks++;
         timerCom.time -= upd.missedStreaks * 2; // Decrease the time.
+    }
+
+    IEnumerator ComboLost()
+    {
+        while(upd.combo != 0)
+        {
+           upd.combo--;
+           yield return new WaitForSeconds(.05f);
+        }     
     }
 }
