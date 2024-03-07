@@ -1,0 +1,489 @@
+fileFormatVersion: 2
+guid: 04d0afffa9f66a74095cb59cf59eb820
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5256037047527811812
+    second: Name-180-44_0
+  - first:
+      213: -4502784165698318540
+    second: Name-180-44_1
+  - first:
+      213: 219607046155521007
+    second: Name-180-44_2
+  - first:
+      213: 4861083316167615014
+    second: Name-180-44_3
+  - first:
+      213: 2707127723168039935
+    second: Name-180-44_4
+  - first:
+      213: -8286733908734550999
+    second: Name-180-44_5
+  - first:
+      213: 6068432387888235579
+    second: Name-180-44_6
+  - first:
+      213: 4653758394553037082
+    second: Name-180-44_7
+  - first:
+      213: 5244430806530778865
+    second: Name-180-44_8
+  - first:
+      213: -1547328216797424180
+    second: Name-180-44_9
+  - first:
+      213: 6123440098488976367
+    second: Name-180-44_10
+  - first:
+      213: -2846733622453461990
+    second: Name-180-44_11
+  - first:
+      213: 6790584339736134133
+    second: Name-180-44_12
+  - first:
+      213: -6404801533818617113
+    second: Name-180-44_13
+  - first:
+      213: -875274435975065722
+    second: Name-180-44_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Name-180-44_0
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 67
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea2038d8d131f840800000000000000
+      internalID: 5256037047527811812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 66
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f4c4778a5e281c0800000000000000
+      internalID: -4502784165698318540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 67
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: febc548e1733c0300800000000000000
+      internalID: 219607046155521007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_3
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 66
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622afbb5589067340800000000000000
+      internalID: 4861083316167615014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_4
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 54
+        width: 11
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff30b0d3256a19520800000000000000
+      internalID: 2707127723168039935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 67
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c51bd3a6b9ffc80800000000000000
+      internalID: -8286733908734550999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_6
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 66
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34cd87da17673450800000000000000
+      internalID: 6068432387888235579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_7
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 101
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1173d96a98759040800000000000000
+      internalID: 4653758394553037082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_8
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 66
+        width: 22
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f6e1684806f7c840800000000000000
+      internalID: 5244430806530778865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_9
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 66
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5d9d65f29c68ae0800000000000000
+      internalID: -1547328216797424180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_10
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 67
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe381d18354daf450800000000000000
+      internalID: 6123440098488976367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_11
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 78
+        width: 11
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c108f5ade5e78d0800000000000000
+      internalID: -2846733622453461990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_12
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 0
+        width: 5
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f18d4b9a700d3e50800000000000000
+      internalID: 6790584339736134133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_13
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 67
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e24dd760f29d17a0800000000000000
+      internalID: -6404801533818617113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name-180-44_14
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68fc9b2b9866ad3f0800000000000000
+      internalID: -875274435975065722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Name-180-44_0: 5256037047527811812
+      Name-180-44_1: -4502784165698318540
+      Name-180-44_10: 6123440098488976367
+      Name-180-44_11: -2846733622453461990
+      Name-180-44_12: 6790584339736134133
+      Name-180-44_13: -6404801533818617113
+      Name-180-44_14: -875274435975065722
+      Name-180-44_2: 219607046155521007
+      Name-180-44_3: 4861083316167615014
+      Name-180-44_4: 2707127723168039935
+      Name-180-44_5: -8286733908734550999
+      Name-180-44_6: 6068432387888235579
+      Name-180-44_7: 4653758394553037082
+      Name-180-44_8: 5244430806530778865
+      Name-180-44_9: -1547328216797424180
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
