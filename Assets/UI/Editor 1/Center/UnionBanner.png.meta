@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UnionBanner_0: 2648476207616980213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

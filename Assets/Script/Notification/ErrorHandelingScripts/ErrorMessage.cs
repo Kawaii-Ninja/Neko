@@ -5,4 +5,5 @@ public class ErrorMessage : MonoBehaviour
 {
     public TextMeshProUGUI errorHeaderText;
     public TextMeshProUGUI errorBodyText;
+    public Animator animator;
 }

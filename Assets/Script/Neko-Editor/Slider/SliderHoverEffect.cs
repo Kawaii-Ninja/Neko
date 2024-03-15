@@ -55,12 +55,12 @@ public class SliderHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
                     isAudioPlayed = true;
                 }
             }
-            Debug.Log("Hovering");
+            // Debug.Log("Hovering");
         }
         else
         {
             isAudioPlayed = false;
-            Debug.Log("Not Hovering");
+            // Debug.Log("Not Hovering");
         }
     }
 

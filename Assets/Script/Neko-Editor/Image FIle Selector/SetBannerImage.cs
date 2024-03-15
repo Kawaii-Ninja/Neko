@@ -1,65 +1,92 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SetBannerImage : MonoBehaviour
 {
-    public Error error;
+    public Message message;
+    public ImageLoader imageLoader;
+
+    private void Awake()
+    {
+        // Throw exception if message or imageLoader is null
+        if (message == null)
+        {
+            throw new System.Exception("Message component is not assigned.");
+        }
+        if (imageLoader == null)
+        {
+            throw new System.Exception("ImageLoader component is not assigned.");
+        }
+    }
+
     public void SetImage(string filePath, RawImage image, GameObject u)
     {
+        // Set background Image to banner.
         try
         {
-
             byte[] imageData = File.ReadAllBytes(filePath);
-            LoadImageIntoBanner(imageData, image, u);
-
+            LoadImageIntoBanner(imageData, image, u, filePath);
         }
         catch (IOException e)
         {
-            Debug.LogError($"Failed to load image from {filePath}. Error: {e.Message}");
-            error.NotificationError("Image Load Error", "We're sorry, we couldn't load your image. Please try again.");
+            HandleImageLoadError($"Failed to load image from {filePath}. Error: {e.Message}");
         }
 
     }
 
-    private void LoadImageIntoBanner(byte[] imageData, RawImage image, GameObject u)
+    private void LoadImageIntoBanner(byte[] imageData, RawImage image, GameObject u, string path)
     {
-        u.SetActive(false);
         Texture2D dataTexture = new(2, 2);
-        if (dataTexture.LoadImage(imageData))
+        try
         {
-
-            if (ChackImageAspectRatio(dataTexture.width, dataTexture.height))
+            if (dataTexture.LoadImage(imageData))
             {
-                image.texture = dataTexture;
-                image.SetNativeSize();
+                if (CheckImageAspectRatio(dataTexture.width, dataTexture.height))
+                {
+                    u.SetActive(false);
+                    imageLoader.feedBackText.text = path;
+                    image.texture = dataTexture;
+                    image.SetNativeSize();
+                }
+                else
+                {
+                    // u.SetActive(true);
+                    // set error message.
+                    SetErrorMessage(path, "Image Aspect Ratio Error", $"The selected image's aspect ratio ({dataTexture.width} x {dataTexture.height}) is not supported. Currently, only images with an aspect ratio greater than 1 are supported and best fit for the game.");
+                }
             }
             else
             {
-                error.NotificationError("Image Aspect Ratio Error", "The selected image's aspect ratio is not supported. Please choose an image with an aspect ratio greater than 1.");
+                // set error message.
+                SetErrorMessage(path, "Image Format Error", "The selected image format is not supported. Please choose a different image.");
             }
         }
-        else
+        catch (IOException e)
         {
-            error.NotificationError("Image Format Error", "Tthe Selected image format is not supported. Please choose a different image.");
+            // Set Image Load Error.
+            HandleImageLoadError($"Failed to load image from {path}. Error: {e.Message}");
         }
 
     }
 
-    private bool ChackImageAspectRatio(float imageWidth, float imageHeight)
+    private bool CheckImageAspectRatio(float imageWidth, float imageHeight)
     {
         float desiredAspectRatio = 1f;
+        return imageWidth / imageHeight >= desiredAspectRatio;
+    }
 
-        if (imageWidth / imageHeight >= desiredAspectRatio)
-        {
-            return true;
-        }
-        else
-        {
-            string header = "Image Aspect Ratio Error";
-            string body = $"The selected image's aspect ratio ({imageWidth} x {imageHeight}) is not supported. Currently, only images with an aspect ratio greater than 1 are supported and best fit for the game.";
-            error.NotificationError(header, body);
-            return false;
-        }
+    // Handle image Load Error message.
+    private void HandleImageLoadError(string errorMessage)
+    {
+        message.MessageDispatcher("Image Load Error", errorMessage, "ERROR");
+    }
+
+    //set error message and dispatch.
+    private void SetErrorMessage(string path, string header, string body)
+    {
+        imageLoader.feedBackText.text = path + " Error, Image is not supported.";
+        message.MessageDispatcher(header, body, "ERROR");
     }
 }

@@ -38,8 +38,9 @@ public class ImageLoader : MonoBehaviour
     }
 
     public RawImage backgroundImage;
-    public TextMeshProUGUI feedBackText;
     public GameObject union;
+    public TextMeshProUGUI feedBackText;
+
 
     private string originalDirectory;
 
@@ -69,7 +70,6 @@ public class ImageLoader : MonoBehaviour
         if (GetOpenFileName(ref ofn))
         {
             string filePath = ofn.file;
-            feedBackText.text = filePath;
             GetComponent<SetBannerImage>().SetImage(filePath, backgroundImage, union);
         }
         Environment.CurrentDirectory = originalDirectory;
