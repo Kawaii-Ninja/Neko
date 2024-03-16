@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class SetBannerImage : MonoBehaviour
 {
@@ -45,10 +46,11 @@ public class SetBannerImage : MonoBehaviour
             {
                 if (CheckImageAspectRatio(dataTexture.width, dataTexture.height))
                 {
+                    MediaHarvester.m_backgroundImage = imageData;
+                    ChangeImageAspectRatio(dataTexture, image);
+                    image.texture = dataTexture;
                     u.SetActive(false);
                     imageLoader.feedBackText.text = path;
-                    image.texture = dataTexture;
-                    image.SetNativeSize();
                 }
                 else
                 {
@@ -68,6 +70,15 @@ public class SetBannerImage : MonoBehaviour
             // Set Image Load Error.
             HandleImageLoadError($"Failed to load image from {path}. Error: {e.Message}");
         }
+
+    }
+
+    private void ChangeImageAspectRatio(Texture2D dataTexture, RawImage image)
+    {
+        float imageAspectRatio = (float)dataTexture.width / dataTexture.height;
+        float screenAspectRatio = (float)Screen.width / Screen.height;
+
+        image.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.width / imageAspectRatio);
 
     }
 
