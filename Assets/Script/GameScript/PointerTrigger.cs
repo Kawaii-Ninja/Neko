@@ -12,9 +12,9 @@ public class PointerTrigger : MonoBehaviour
     private void Awake()
     {
         // Find and assign references to components.
-        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
-        scoreManager = Object.FindFirstObjectByType<ScoreManager>();
-        comboStreak = Object.FindFirstObjectByType<ComboStreak>();
+        upd = FindObjectOfType<UniversalPlayerData>();
+        scoreManager = FindObjectOfType<ScoreManager>();
+        comboStreak = FindObjectOfType<ComboStreak>();
     }
 
     void Update()
@@ -29,7 +29,6 @@ public class PointerTrigger : MonoBehaviour
         // Check if the object's tag is correct.
         if (collider.CompareTag("Checkers"))
         {
-            // Debug.Log("Entered");
             onCircle = true; // Set the state if the object is on the circle.
             checkerLogic = collider.gameObject.GetComponent<CheckerLogic>(); // Get the CheckerLogic component.
             _curentChecker = collider.gameObject;
@@ -42,7 +41,6 @@ public class PointerTrigger : MonoBehaviour
         // Check if the object's tag is correct.
         if (collider.CompareTag("Checkers"))
         {
-            // Debug.Log("Exited");
             onCircle = false; // Set the state if the object is out of the circle.
             checkerLogic = null; // Clear the CheckerLogic component.
         }

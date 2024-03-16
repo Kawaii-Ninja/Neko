@@ -2,13 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using UnityEngine.SocialPlatforms;
 
 public class Timer : MonoBehaviour
 {
     UniversalPlayerData upd;
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] Slider timeSlider;
+    [SerializeField] Image timerBar;
     [SerializeField] float initialTime = 60f;
 
     public float time;
@@ -16,7 +15,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         // Find the UniversalPlayerData object in the scene and initialize its current score.
-        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
+        upd = FindObjectOfType<UniversalPlayerData>();
         time = initialTime;
         StartCoroutine(StartCountdown());
     }
@@ -35,10 +34,11 @@ public class Timer : MonoBehaviour
     
     private void UpdateTimerBar()
     {
-        if (timeSlider != null)
+        if (timerBar != null)
         {
             float lerpSpeed = 3f * Time.deltaTime;
-            timeSlider.value = Mathf.Lerp(timeSlider.value, time, lerpSpeed);
+            float targetFillAmount = Mathf.Clamp(time / initialTime, 0f, 1f);
+            timerBar.fillAmount = Mathf.Lerp(timerBar.fillAmount, targetFillAmount, lerpSpeed);
         }
     }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b49bee03c03d443a286fd7defd5993, type: 3}
   m_Name: CheckersSlower
   m_EditorClassIdentifier: 
-  velocity: 700
+  velocity: 800
   _Id: 1
   _checkerSprit:
   - {fileID: 5630822804573838396, guid: d41e9ef716117044b8245ff2678f3f17, type: 3}
