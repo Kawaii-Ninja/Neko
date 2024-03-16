@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class BeatmapDataCreator : MonoBehaviour
+public class OldBeatmapDataCreator : MonoBehaviour
 {
     public TMP_InputField beatmapNameField;
     private string folderPath;

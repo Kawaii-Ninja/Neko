@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
     private void Start()
     {
         // Find and assign reference to UniversalPlayerData component.
-        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
+        upd = FindObjectOfType<UniversalPlayerData>();
     }
 
     private void Update()

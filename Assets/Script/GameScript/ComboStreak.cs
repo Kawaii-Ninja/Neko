@@ -10,9 +10,8 @@ public class ComboStreak : MonoBehaviour
     private void Start()
     {
         // Find and assign references to UniversalPlayerData and Timer components.
-        upd = Object.FindFirstObjectByType<UniversalPlayerData>();
-        _TimerComponent = Object.FindFirstObjectByType<Timer>();
-
+        upd = FindObjectOfType<UniversalPlayerData>();
+        _TimerComponent = FindObjectOfType<Timer>();
     }
 
     private void Update()
@@ -26,15 +25,15 @@ public class ComboStreak : MonoBehaviour
     private void SetComboTextTrigger()
     {
         // Activate the panel when the combo streak is greater than 2.
-        if (upd.combo > 0)
+        if (upd.combo > 2)
         {
             comboText.gameObject.SetActive(true);
         }
-        // // Deactivate the panel when the combo streak is not sufficient.
-        // else
-        // {
-        //     comboText.gameObject.SetActive(false);
-        // }
+        // Deactivate the panel when the combo streak is not sufficient.
+        else
+        {
+            comboText.gameObject.SetActive(false);
+        }
     }
 
     // Increase the combo streak and adjust timer when called.

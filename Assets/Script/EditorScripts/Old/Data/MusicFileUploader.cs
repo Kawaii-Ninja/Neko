@@ -3,7 +3,7 @@ using TMPro;
 // using SFB;
 using System.Collections;
 
-public class MusicFileUploader : MonoBehaviour
+public class OldMusicFileUploader : MonoBehaviour
 {
     public TextMeshProUGUI feedbackText;
     static public string audioFilePath;
