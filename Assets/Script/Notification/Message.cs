@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Playables;
 
 public class Message : MonoBehaviour
 {

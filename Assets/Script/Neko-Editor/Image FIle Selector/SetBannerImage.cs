@@ -1,8 +1,6 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class SetBannerImage : MonoBehaviour
 {
@@ -57,6 +55,7 @@ public class SetBannerImage : MonoBehaviour
                     // u.SetActive(true);
                     // set error message.
                     SetErrorMessage(path, "Image Aspect Ratio Error", $"The selected image's aspect ratio ({dataTexture.width} x {dataTexture.height}) is not supported. Currently, only images with an aspect ratio greater than 1 are supported and best fit for the game.");
+                    SetErrorMessage(path, "Unknown ", $"{Application.persistentDataPath}");
                 }
             }
             else
@@ -76,7 +75,6 @@ public class SetBannerImage : MonoBehaviour
     private void ChangeImageAspectRatio(Texture2D dataTexture, RawImage image)
     {
         float imageAspectRatio = (float)dataTexture.width / dataTexture.height;
-        float screenAspectRatio = (float)Screen.width / Screen.height;
 
         image.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.width / imageAspectRatio);
 

@@ -19,9 +19,10 @@ public class DirectoryManager : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Path alredy Exiest {currentPath}");
+                // Debug.Log($"Path alredy Exiest {currentPath}");
+
             }
         }
     }
-    
+
 }

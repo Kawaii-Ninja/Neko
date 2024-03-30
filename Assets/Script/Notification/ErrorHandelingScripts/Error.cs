@@ -51,7 +51,7 @@ public class Error : MonoBehaviour
     // Destroy the error message after a timeout
     IEnumerator DeleteNotificationAfterDelay(GameObject errorNotification)
     {
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(30f);
         ErrorMessage errorMessageComponent = errorNotification.GetComponent<ErrorMessage>();
         errorMessageComponent.animator.SetBool("SlideOut", true);
         yield return new WaitForSeconds(.5f);
@@ -60,7 +60,7 @@ public class Error : MonoBehaviour
 }
 
 
-[System.Serializable]
+[Serializable]
 public class ErrorNotification
 {
     public string Header;

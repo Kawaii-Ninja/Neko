@@ -40,6 +40,7 @@ public class ImageLoader : MonoBehaviour
     public RawImage backgroundImage;
     public GameObject union;
     public TextMeshProUGUI feedBackText;
+    public Message message;
 
 
     private string originalDirectory;
@@ -56,6 +57,29 @@ public class ImageLoader : MonoBehaviour
 
     public void OpenFileBrowser()
     {
+
+        if (PlatformCheck.CurrentPlatform() == 0)
+        {
+            WindowFileBrowser();
+        }
+        else if (PlatformCheck.CurrentPlatform() == 1)
+        {
+            OSXFileBrowser();
+        }
+        else if (PlatformCheck.CurrentPlatform() == 2)
+        {
+            LinuxFileBrowser();
+        }
+        else if (PlatformCheck.CurrentPlatform() == 404)
+        {
+            message.MessageDispatcher("404 ERROR: Platform not supported", $"Your current platform is {Application.platform} ", "ERROR");
+        }
+
+    }
+
+
+    private void WindowFileBrowser()
+    {
         OpenFileName ofn = new();
         ofn.structSize = Marshal.SizeOf(ofn);
         ofn.filter = "Image Files\0*.jpg;*.jpeg;*.png\0All Files\0*.*\0\0";
@@ -65,7 +89,7 @@ public class ImageLoader : MonoBehaviour
         ofn.maxFileTitle = ofn.fileTitle.Length;
         ofn.initialDir = Application.dataPath;
         ofn.title = "Select Image File         ~ Neko Editor";
-        ofn.flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000200;
+        ofn.flags = 0x00080000 | 0x00001000 | 0x00000800;
 
         if (GetOpenFileName(ref ofn))
         {
@@ -73,5 +97,15 @@ public class ImageLoader : MonoBehaviour
             GetComponent<SetBannerImage>().SetImage(filePath, backgroundImage, union);
         }
         Environment.CurrentDirectory = originalDirectory;
+    }
+
+    private void LinuxFileBrowser()
+    {
+        message.MessageDispatcher("404 ERROR: Platform not supported", $"Your current platform ({Application.platform}) is not supported during development.", "ERROR");
+    }
+
+    private void OSXFileBrowser()
+    {
+        message.MessageDispatcher("404 ERROR: Platform not supported", $"Your current platform ({Application.platform}) is not supported during development.", "ERROR");
     }
 }
