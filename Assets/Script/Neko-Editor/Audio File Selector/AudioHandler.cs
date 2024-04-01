@@ -30,6 +30,7 @@ public class AudioHandler : MonoBehaviour
     public void LoadAudio(string audioPath)
     {
         byte[] audioData = LoadAudioData(audioPath);
+        audioPlayer.SetActive(false);
         fileName = Path.GetFileNameWithoutExtension(audioPath);
         try
         {
@@ -70,7 +71,7 @@ public class AudioHandler : MonoBehaviour
         {
             audioClip = CheckAudioFormat(audioPath) switch
             {
-                "WAVE" => WavUtility.ToAudioClip(audioData, fileName),
+                "WAVE" => WavUtility.ToAudioClip(audioData, fileName, audioPath),
                 "MP3" => MP3Utility.ToAudioClip(MP3Decoder.DecodeMP3(audioPath), fileName, audioPath),
                 _ => throw new Exception("Not supported audio format"),
             };
@@ -101,10 +102,10 @@ public class AudioHandler : MonoBehaviour
         //     return "UNSUPPORTED_AUDIO_FILE_FORMAT";
         // }
 
-        Debug.Log(AudioReader.GetMetaData(audioPath).title);
-        Debug.Log(AudioReader.GetMetaData(audioPath).sampleRate);
-        Debug.Log(AudioReader.GetMetaData(audioPath).bitrate);
-        Debug.Log(AudioReader.GetMetaData(audioPath).durationSeconds);
+        // Debug.Log(AudioReader.GetMetaData(audioPath).title);
+        // Debug.Log(AudioReader.GetMetaData(audioPath).sampleRate);
+        // Debug.Log(AudioReader.GetMetaData(audioPath).bitrate);
+        // Debug.Log(AudioReader.GetMetaData(audioPath).durationSeconds);
 
         string extension = Path.GetExtension(audioPath);
 

@@ -8,7 +8,6 @@ public class ProgressBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] Slider progressBar;
     [SerializeField] TextMeshProUGUI timer;
-    bool isSeeking = false;
     float m_Second;
     bool isAudioPlaying;
     bool isDragging;
@@ -17,7 +16,7 @@ public class ProgressBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (!isDragging && m_Asource != null && progressBar != null && isAudioPlaying)
         {
-            Debug.Log("1");
+            // Debug.Log("1");
             progressBar.value = m_Asource.time / m_Second;
             timer.text = AudioFormatUtility.FormatLength(m_Asource.time);
         }
@@ -25,7 +24,7 @@ public class ProgressBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (m_Asource.time == m_Second)
         {
             m_Asource.Stop();
-            Debug.Log("777");
+            // Debug.Log("777");
             // StartCoroutine(RestartAusio());
         }
     }

@@ -44,7 +44,7 @@ public class SetBannerImage : MonoBehaviour
             {
                 if (CheckImageAspectRatio(dataTexture.width, dataTexture.height))
                 {
-                    MediaHarvester.m_backgroundImage = imageData;
+                    // MediaHarvester.m_backgroundImage = imageData;
                     ChangeImageAspectRatio(dataTexture, image);
                     image.texture = dataTexture;
                     u.SetActive(false);

@@ -13,10 +13,10 @@ public static class Convert16BitByteArray
 
             for (int i = 0; i < len; i++)
             {
-                floatArr[i] = BitConverter.ToInt16(byteArray, i * 2) / 32768f;
+                floatArr[i] = BitConverter.ToInt16(byteArray, i * 2) / 32768.0f;
             }
 
-            Debug.Log($"16-bit PCM audio converted to float array{floatArr.Length}");
+            // Debug.Log($"16-bit PCM audio converted to float array{floatArr.Length}");
             return floatArr;
         }
         catch (Exception e)

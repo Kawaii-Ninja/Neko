@@ -3,7 +3,7 @@ using System.IO;
 
 public static class WavUtility
 {
-    public static AudioClip ToAudioClip(byte[] wavData, string name)
+    public static AudioClip ToAudioClip(byte[] wavData, string name, string audioPath)
     {
         // Read WAV header
         MemoryStream stream = new(wavData);
@@ -48,8 +48,10 @@ public static class WavUtility
         {
             if (audioFormat == 1)
             {
+                float durationInSeconds = AudioReader.GetMetaData(audioPath).durationSeconds;
                 float[] samples = Convert16BitByteArray.Convert16BitPCMByteArrayToFloatArray(audioData);
-                audioClip = AudioClip.Create(name, samples.Length, numChannels, sampleRate, false);
+                int lengthSamples = Mathf.CeilToInt(durationInSeconds * sampleRate);
+                audioClip = AudioClip.Create(name, lengthSamples, numChannels, sampleRate, false);
                 audioClip.SetData(samples, 0);
             }
             else
@@ -62,11 +64,14 @@ public static class WavUtility
         {
             if (audioFormat == 1)
             {
-                Debug.Log($"audioData.Length: {audioData.Length}");
-                Debug.Log($"bitsPerSample: {bitsPerSample}");
-                Debug.Log($"numChannels: {numChannels}");
+                // Debug.Log($"audioData.Length: {audioData.Length}");
+                // Debug.Log($"bitsPerSample: {bitsPerSample}");
+                // Debug.Log($"numChannels: {numChannels}");
+
+                float durationInSeconds = AudioReader.GetMetaData(audioPath).durationSeconds;
                 float[] samples = Convert24BitByteArray.Convert24BitPCMByteArrayToFloatArray(audioData);
-                audioClip = AudioClip.Create(name, samples.Length, numChannels, sampleRate, false);
+                int lengthSamples = Mathf.CeilToInt(durationInSeconds * sampleRate);
+                audioClip = AudioClip.Create(name, lengthSamples, numChannels, sampleRate, false);
                 audioClip.SetData(samples, 0);
             }
             else
@@ -79,19 +84,23 @@ public static class WavUtility
         {
             if (audioFormat == 1)
             {
+                float durationInSeconds = AudioReader.GetMetaData(audioPath).durationSeconds;
                 float[] samples = Convert32BitByteArray.Convert32BitPCMByteArrayToFloatArray(audioData);
-                audioClip = AudioClip.Create(name, samples.Length, numChannels, sampleRate, false);
+                int lengthSamples = Mathf.CeilToInt(durationInSeconds * sampleRate);
+                audioClip = AudioClip.Create(name, lengthSamples, numChannels, sampleRate, false);
                 audioClip.SetData(samples, 0);
             }
             else if (audioFormat == 3)
             {
+
+                // Debug.Log($"audioData.Length: {audioData.Length}");
+                // Debug.Log($"bitsPerSample: {bitsPerSample}");
+                // Debug.Log($"numChannels: {numChannels}");
+
+                float durationInSeconds = AudioReader.GetMetaData(audioPath).durationSeconds;
                 float[] samples = Convert32BitFloatArray.Convert32BitFloatArrayToFloatArray(audioData);
-                Debug.Log($"audioData.Length: {audioData.Length}");
-                Debug.Log($"bitsPerSample: {bitsPerSample}");
-                Debug.Log($"numChannels: {numChannels}");
-
-                audioClip = AudioClip.Create(name, samples.Length / (bitsPerSample / 8) / numChannels, numChannels, sampleRate, false);
-
+                int lengthSamples = Mathf.CeilToInt(durationInSeconds * sampleRate);
+                audioClip = AudioClip.Create(name, lengthSamples, numChannels, sampleRate, false);
                 audioClip.SetData(samples, 0);
             }
             else
