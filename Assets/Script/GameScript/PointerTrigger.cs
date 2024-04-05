@@ -12,9 +12,9 @@ public class PointerTrigger : MonoBehaviour
     private void Awake()
     {
         // Find and assign references to components.
-        upd = FindObjectOfType<UniversalPlayerData>();
-        scoreManager = FindObjectOfType<ScoreManager>();
-        comboStreak = FindObjectOfType<ComboStreak>();
+        upd = FindFirstObjectByType<UniversalPlayerData>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
+        comboStreak = FindFirstObjectByType<ComboStreak>();
     }
 
     void Update()
