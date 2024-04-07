@@ -103,7 +103,7 @@ namespace SlimUI.ModernMenu{
 		public void ShowMaps(){
 			LoadScene("myMaps");
 		}public void nekoEditor(){
-			LoadScene("mapEditor");
+			LoadScene("Editor");
 		}
 		public void ReturnMenu(){
 			exitMenu.SetActive(false);
