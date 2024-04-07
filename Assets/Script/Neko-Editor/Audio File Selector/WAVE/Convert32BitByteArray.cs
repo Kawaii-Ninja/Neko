@@ -18,7 +18,7 @@ public static class Convert32BitByteArray
                 floatArr[i] = intValue / (int.MaxValue + 1.0f);
             }
 
-            Debug.Log($"32-bit integer array converted to float array : length is {floatArr.Length}");
+            // Debug.Log($"32-bit integer array converted to float array : length is {floatArr.Length}");
 
             return floatArr;
         }

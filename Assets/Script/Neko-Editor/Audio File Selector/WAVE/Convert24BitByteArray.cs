@@ -19,7 +19,7 @@ public static class Convert24BitByteArray
                 floatArr[i] = intValue / 8388608f;
             }
 
-            Debug.Log($"24-bit integer array converted to float array: length is {floatArr.Length}");
+            // Debug.Log($"24-bit integer array converted to float array: length is {floatArr.Length}");
 
             return floatArr;
         }

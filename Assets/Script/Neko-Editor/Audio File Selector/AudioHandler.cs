@@ -36,10 +36,12 @@ public class AudioHandler : MonoBehaviour
         {
             if (audioData != null)
             {
+                NekoMap.mapAudio = audioData;
                 AudioClip audioClip = CreateAudioClip(audioData, audioPath);
+                NekoMap.audioClip = CreateAudioClip(audioData, audioPath);
                 audioPlayer.SetActive(true);
                 m_AudioPlayer.Play(audioClip, audioPath);
-                audioLoader.feedBackText.text = audioPath;
+                audioLoader.feedBackText.text = audioPath.Replace("\\n", "\\N");
                 Debug.Log("audio playing");
             }
         }
@@ -97,10 +99,6 @@ public class AudioHandler : MonoBehaviour
 
     private string CheckAudioFormat(string audioPath)
     {
-        // if (audioData.Length < 4)
-        // {
-        //     return "UNSUPPORTED_AUDIO_FILE_FORMAT";
-        // }
 
         // Debug.Log(AudioReader.GetMetaData(audioPath).title);
         // Debug.Log(AudioReader.GetMetaData(audioPath).sampleRate);
@@ -113,13 +111,13 @@ public class AudioHandler : MonoBehaviour
         if (extension == ".wav")
         {
             // This is a WAV file
-            Debug.Log("Wave");
+            // Debug.Log("Wave");
             return "WAVE";
         }
         else if (extension == ".mp3")
         {
             // This is an MP3 file
-            Debug.Log("Mp3");
+            // Debug.Log("Mp3");
             return "MP3";
         }
         else

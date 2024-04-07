@@ -1,5 +1,4 @@
 using TagLib;
-using System;
 
 public static class AudioReader
 {

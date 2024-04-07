@@ -18,14 +18,7 @@ public class ProgressBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             // Debug.Log("1");
             progressBar.value = m_Asource.time / m_Second;
-            timer.text = AudioFormatUtility.FormatLength(m_Asource.time);
-        }
-
-        if (m_Asource.time == m_Second)
-        {
-            m_Asource.Stop();
-            // Debug.Log("777");
-            // StartCoroutine(RestartAusio());
+            timer.text = AudioFormatUtility.FormatLength(m_Asource.time, 1);
         }
     }
 
@@ -50,9 +43,4 @@ public class ProgressBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         isDragging = false;
     }
 
-    IEnumerator RestartAusio()
-    {
-        yield return new WaitForSeconds(2f);
-        progressBar.value = 0;
-    }
 }

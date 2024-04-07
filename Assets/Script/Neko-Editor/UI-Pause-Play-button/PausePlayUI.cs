@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,23 +8,48 @@ public class PausePlayUI : MonoBehaviour
     [SerializeField] Texture2D play;
     [SerializeField] Texture2D pause;
     [SerializeField] AudioSource audioSource;
+    public static bool IsPause = false;
 
     private void Start()
     {
         rawImage.texture = pause;
     }
 
-    public void ChangeTexture()
+    private void Update()
     {
-        if (rawImage.texture.name == "Play-40-40")
+        if (IsPause)
         {
-            rawImage.texture = pause;
-            audioSource.Play();
+            rawImage.texture = play;
         }
         else
         {
-            rawImage.texture = play;
-            audioSource.Pause();
+            rawImage.texture = pause;
         }
+    }
+
+    public void ChangeTexture()
+    {
+        if (audioSource.isPlaying)
+        {
+            Pause();
+        }
+        else
+        {
+            Play();
+        }
+    }
+
+    private void Pause()
+    {
+        rawImage.texture = play;
+        audioSource.Pause();
+        IsPause = true;
+    }
+
+    private void Play()
+    {
+        rawImage.texture = pause;
+        audioSource.Play();
+        IsPause = false;
     }
 }

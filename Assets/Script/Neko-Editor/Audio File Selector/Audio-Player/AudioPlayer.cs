@@ -1,4 +1,4 @@
-using System.IO;
+using System.Collections;
 using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
@@ -14,10 +14,25 @@ public class AudioPlayer : MonoBehaviour
 
     public void Play(AudioClip audioClip, string audioPath)
     {
+        PausePlayUI.IsPause = false;
         AudioMetaData metaData = AudioReader.GetMetaData(audioPath);
+        NekoMap.audioDuration = AudioReader.GetMetaData(audioPath).durationSeconds;
         audioSource.clip = audioClip;
-        progressBar.ProgressData(metaData.durationSeconds, audioSource, true);
-        audioTrackInfo.AudioMetaData(audioSource.clip.name, AudioFormatUtility.FormatLength(AudioReader.GetMetaData(audioPath).durationSeconds));
-        audioSource.Play();
+        progressBar.ProgressData(metaData.durationSeconds, audioSource, !PausePlayUI.IsPause);
+        audioTrackInfo.AudioMetaData(audioSource.clip.name, AudioFormatUtility.FormatLength(NekoMap.audioDuration, 1));
+        StartCoroutine(LoopAudio());
+    }
+
+    IEnumerator LoopAudio()
+    {
+        yield return new WaitUntil(() => !audioSource.isPlaying);
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            audioSource.time = 0;
+            audioSource.Play(0);
+            yield return new WaitUntil(() => !audioSource.isPlaying && !PausePlayUI.IsPause);
+        }
     }
 }

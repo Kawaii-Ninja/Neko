@@ -13,8 +13,8 @@ public static class WavUtility
         string riff = new(reader.ReadChars(4));
         int chunkSize = reader.ReadInt32();
         string format = new(reader.ReadChars(4));
-        Debug.Log("line 16 " + riff);
-        Debug.Log("line 17 " + format);
+        // Debug.Log("line 16 " + riff);
+        // Debug.Log("line 17 " + format);
         // Ensure the file is a WAV file
         if (riff != "RIFF" || format != "WAVE")
         {
@@ -56,7 +56,7 @@ public static class WavUtility
             }
             else
             {
-                Debug.Log("Error setting data: Unsupported audio format.");
+                // Debug.Log("Error setting data: Unsupported audio format.");
                 return null;
             }
         }
@@ -76,7 +76,7 @@ public static class WavUtility
             }
             else
             {
-                Debug.Log("Error setting data: Unsupported audio format.");
+                // Debug.Log("Error setting data: Unsupported audio format.");
                 return null;
             }
         }
@@ -105,7 +105,7 @@ public static class WavUtility
             }
             else
             {
-                Debug.Log("Error setting data: Unsupported audio format.");
+                // Debug.Log("Error setting data: Unsupported audio format.");
                 return null;
             }
         }

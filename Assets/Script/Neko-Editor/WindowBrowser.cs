@@ -72,7 +72,7 @@ public class WindowBrowser : MonoBehaviour
             return null;
         }
 
-        Debug.Log("2 " + filePath);
+        // Debug.Log("2 " + filePath);
         Environment.CurrentDirectory = originalDirectory;
         return filePath;
     }

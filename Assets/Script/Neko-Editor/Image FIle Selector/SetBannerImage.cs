@@ -6,6 +6,7 @@ public class SetBannerImage : MonoBehaviour
 {
     public Message message;
     public ImageLoader imageLoader;
+    public RawImage backgroundImage;
 
     private void Awake()
     {
@@ -42,11 +43,15 @@ public class SetBannerImage : MonoBehaviour
         {
             if (dataTexture.LoadImage(imageData))
             {
-                if (CheckImageAspectRatio(dataTexture.width, dataTexture.height))
+                if (CheckImageAspectRatio.CheckRatio(dataTexture.width, dataTexture.height))
                 {
-                    // MediaHarvester.m_backgroundImage = imageData;
-                    ChangeImageAspectRatio(dataTexture, image);
+
+                    NekoMap.backGroundImage = imageData;
+                    NekoMap.imagePath = path;
+                    ChangeImageAspectRatio.ChangeImageRatio(dataTexture, image);
+                    ChangeImageAspectRatio.ChangeImageRatio(dataTexture, backgroundImage);
                     image.texture = dataTexture;
+                    backgroundImage.texture = dataTexture;
                     u.SetActive(false);
                     imageLoader.feedBackText.text = path;
                 }
@@ -72,19 +77,14 @@ public class SetBannerImage : MonoBehaviour
 
     }
 
-    private void ChangeImageAspectRatio(Texture2D dataTexture, RawImage image)
-    {
-        float imageAspectRatio = (float)dataTexture.width / dataTexture.height;
+    // private void ChangeImageAspectRatio(Texture2D dataTexture, RawImage image)
+    // {
+    //     float imageAspectRatio = (float)dataTexture.width / dataTexture.height;
 
-        image.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.width / imageAspectRatio);
+    //     image.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.width / imageAspectRatio);
 
-    }
+    // }
 
-    private bool CheckImageAspectRatio(float imageWidth, float imageHeight)
-    {
-        float desiredAspectRatio = 1f;
-        return imageWidth / imageHeight >= desiredAspectRatio;
-    }
 
     // Handle image Load Error message.
     private void HandleImageLoadError(string errorMessage)

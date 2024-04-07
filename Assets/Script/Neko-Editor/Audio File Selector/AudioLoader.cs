@@ -49,7 +49,7 @@ public class AudioLoader : MonoBehaviour
         string path = WindowBrowser.WindowAudioFileBrowser();
         if (path != null)
         {
-            audio.LoadAudio(path);
+            audio.LoadAudio(@$"{path}");
         }
     }
 
