@@ -10,8 +10,8 @@ public class ComboStreak : MonoBehaviour
     private void Start()
     {
         // Find and assign references to UniversalPlayerData and Timer components.
-        upd = FindObjectOfType<UniversalPlayerData>();
-        _TimerComponent = FindObjectOfType<Timer>();
+        upd = FindFirstObjectByType<UniversalPlayerData>();
+        _TimerComponent = FindFirstObjectByType<Timer>();
     }
 
     private void Update()

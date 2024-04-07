@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 namespace SlimUI.ModernMenu{
 	public class UIMenuManager : MonoBehaviour {
@@ -14,14 +15,9 @@ namespace SlimUI.ModernMenu{
         public GameObject mainMenu;
         [Tooltip("THe first list of buttons")]
         public GameObject firstMenu;
-        [Tooltip("The Menu for when the PLAY button is clicked")]
-        public GameObject playMenu;
         [Tooltip("The Menu for when the EXIT button is clicked")]
         public GameObject exitMenu;
-        [Tooltip("donation/contact Menu")]
-        public GameObject extrasMenu;
         public GameObject profile;
-        public GameObject account;
 
 
         public enum Theme {custom1, custom2, custom3};
@@ -39,15 +35,6 @@ namespace SlimUI.ModernMenu{
         public GameObject PanelVideo;
         [Tooltip("The UI Panel that holds the GAME window tab")]
         public GameObject PanelGame;
-        [Tooltip("The UI Panel that holds the KEY BINDINGS window tab")]
-        public GameObject PanelKeyBindings;
-        [Tooltip("The UI Sub-Panel under KEY BINDINGS for MOVEMENT")]
-        public GameObject PanelMovement;
-        [Tooltip("The UI Sub-Panel under KEY BINDINGS for COMBAT")]
-        public GameObject PanelCombat;
-        [Tooltip("The UI Sub-Panel under KEY BINDINGS for GENERAL")]
-        public GameObject PanelGeneral;
-        
 
         // highlights in settings screen
         [Header("SETTINGS SCREEN")]
@@ -57,14 +44,6 @@ namespace SlimUI.ModernMenu{
         public GameObject lineVideo;
         [Tooltip("Highlight Image for when CONTROLS Tab is selected in Settings")]
         public GameObject lineControls;
-        [Tooltip("Highlight Image for when KEY BINDINGS Tab is selected in Settings")]
-        public GameObject lineKeyBindings;
-        [Tooltip("Highlight Image for when MOVEMENT Sub-Tab is selected in KEY BINDINGS")]
-        public GameObject lineMovement;
-        [Tooltip("Highlight Image for when COMBAT Sub-Tab is selected in KEY BINDINGS")]
-        public GameObject lineCombat;
-        [Tooltip("Highlight Image for when GENERAL Sub-Tab is selected in KEY BINDINGS")]
-        public GameObject lineGeneral;
 
         [Header("LOADING SCREEN")]
 		[Tooltip("If this is true, the loaded scene won't load until receiving user input")]
@@ -85,10 +64,7 @@ namespace SlimUI.ModernMenu{
 
 		void Start(){
 			CameraObject = transform.GetComponent<Animator>();
-
-			playMenu.SetActive(false);
 			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
 			profile.SetActive(true);
 			firstMenu.SetActive(true);
 			mainMenu.SetActive(true);
@@ -122,31 +98,29 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void PlayCampaign(){
-			exitMenu.SetActive(false);
-			profile.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			playMenu.SetActive(true);
+		   LoadScene("online");
+		}
+		public void ShowMaps(){
+			LoadScene("myMaps");
+		}public void nekoEditor(){
+			LoadScene("mapEditor");
 		}
 		public void ReturnMenu(){
-			playMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
 			exitMenu.SetActive(false);
 			mainMenu.SetActive(true);
 			profile.SetActive(true);
 		}
 
-		public void LoadScene(string scene){
-			if(scene != ""){
+		public int LoadScene(string scene,bool async=false){
+			if(scene != "" && async){
 				StartCoroutine(LoadAsynchronously(scene));
+			}else{
+				SceneManager.LoadScene(scene);
 			}
-		}
-
-		public void  DisablePlayCampaign(){
-			playMenu.SetActive(false);
+			return 0;
 		}
 
 		public void Position2(){
-			DisablePlayCampaign();
 			CameraObject.SetFloat("Animate",1);
 		}
 
@@ -158,19 +132,10 @@ namespace SlimUI.ModernMenu{
 			PanelControls.SetActive(false);
 			PanelVideo.SetActive(false);
 			PanelGame.SetActive(false);
-			PanelKeyBindings.SetActive(false);
 
 			lineGame.SetActive(false);
 			lineControls.SetActive(false);
 			lineVideo.SetActive(false);
-			lineKeyBindings.SetActive(false);
-
-			PanelMovement.SetActive(false);
-			lineMovement.SetActive(false);
-			PanelCombat.SetActive(false);
-			lineCombat.SetActive(false);
-			PanelGeneral.SetActive(false);
-			lineGeneral.SetActive(false);
 		}
 
 		public void GamePanel(){
@@ -178,6 +143,7 @@ namespace SlimUI.ModernMenu{
 			PanelGame.SetActive(true);
 			lineGame.SetActive(true);
 		}
+
 
 		public void VideoPanel(){
 			DisablePanels();
@@ -189,34 +155,6 @@ namespace SlimUI.ModernMenu{
 			DisablePanels();
 			PanelControls.SetActive(true);
 			lineControls.SetActive(true);
-		}
-
-		public void KeyBindingsPanel(){
-			DisablePanels();
-			MovementPanel();
-			PanelKeyBindings.SetActive(true);
-			lineKeyBindings.SetActive(true);
-		}
-
-		public void MovementPanel(){
-			DisablePanels();
-			PanelKeyBindings.SetActive(true);
-			PanelMovement.SetActive(true);
-			lineMovement.SetActive(true);
-		}
-
-		public void CombatPanel(){
-			DisablePanels();
-			PanelKeyBindings.SetActive(true);
-			PanelCombat.SetActive(true);
-			lineCombat.SetActive(true);
-		}
-
-		public void GeneralPanel(){
-			DisablePanels();
-			PanelKeyBindings.SetActive(true);
-			PanelGeneral.SetActive(true);
-			lineGeneral.SetActive(true);
 		}
 
 		public void PlayHover(){
@@ -235,15 +173,6 @@ namespace SlimUI.ModernMenu{
 		public void AreYouSure(){
 			profile.SetActive(false);
 			exitMenu.SetActive(true);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			DisablePlayCampaign();
-		}
-
-		public void ExtrasMenu(){
-			profile.SetActive(false);
-			playMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(true);
-			exitMenu.SetActive(false);
 		}
 
 		public void QuitGame(){
