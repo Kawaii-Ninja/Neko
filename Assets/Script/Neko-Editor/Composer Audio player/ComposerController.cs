@@ -3,10 +3,12 @@ using UnityEngine.UI;
 
 public class ComposerController : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] RawImage rawImage;
+    [SerializeField] AudioSource audioSource;
+    [Header("Image Textures")]
     [SerializeField] Texture2D play;
     [SerializeField] Texture2D pause;
-    [SerializeField] AudioSource audioSource;
 
     private void Update()
     {
@@ -43,6 +45,6 @@ public class ComposerController : MonoBehaviour
     {
         ComposerAudioPlayer.isAudioPause = true;
         rawImage.texture = play;
-        audio.Stop();
+        // audio.Stop();
     }
 }

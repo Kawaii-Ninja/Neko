@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FrameUIScaler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    RectTransform rectTransform;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        rectTransform = GetComponent<RectTransform>();
+    }
+    private void Update()
+    {
+        int ms = Mathf.FloorToInt(NekoMap.audioDuration * 1000) + 1629;
+        rectTransform.sizeDelta = new Vector2(ms, rectTransform.sizeDelta.y);
+
     }
 }

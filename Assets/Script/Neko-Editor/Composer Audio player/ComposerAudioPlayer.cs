@@ -14,6 +14,7 @@ public class ComposerAudioPlayer : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
     [SerializeField] Slider progressBar;
+    [SerializeField] ScrollRect scrollRect;
     [SerializeField] TextMeshProUGUI timeLineText;
     [SerializeField] ComposePlayback composePlayback;
 
@@ -38,8 +39,8 @@ public class ComposerAudioPlayer : MonoBehaviour
         {
             audioClip = AudioClip.Create("EmptyClip", 44100, 1, 44100, false);
             NekoMap.audioDuration = audioClip.length;
-            Debug.Log(NekoMap.audioDuration);
             audioSource.clip = audioClip;
+            composePlayback.PlayBack(audioSource, progressBar, scrollRect, timeLineText);
         }
     }
 
@@ -49,7 +50,7 @@ public class ComposerAudioPlayer : MonoBehaviour
         {
             audioSource.clip = NekoMap.audioClip;
         }
-        composePlayback.PlayBack(audioSource, progressBar, timeLineText);
+        composePlayback.PlayBack(audioSource, progressBar, scrollRect, timeLineText);
     }
 
     private bool CheckExternalAudio()
