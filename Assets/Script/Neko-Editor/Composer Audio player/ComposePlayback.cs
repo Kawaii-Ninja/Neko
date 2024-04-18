@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class ComposePlayback : MonoBehaviour
 {
-    public ComposerProgressbar audioProgressbar;
-    public ComposerProgressbar scrollProgressbar;
+    public SliderProgressBar audioProgressbar;
+    public ScrollProgressBar scrollProgressbar;
+    public InteractivePlaybackController interactivePlaybackController;
 
     public void PlayBack(AudioSource audioSource, Slider slider, ScrollRect scrollRect, TextMeshProUGUI time)
     {
@@ -13,8 +14,19 @@ public class ComposePlayback : MonoBehaviour
 
         if (audioSource.clip != null)
         {
-            audioProgressbar.InitializeProgressBar(audioSource, time);
-            scrollProgressbar.InitializeProgressBar(audioSource, time);
+            if (SliderProgressBar.isHovering)
+            {
+                audioProgressbar.InitializeAudioProgressBar(audioSource, time);
+            }
+            else if (ScrollProgressBar.isHovering)
+            {
+                scrollProgressbar.InitializeAudioProgressBar(audioSource, time);
+            }
+            else
+            {
+                audioProgressbar.InitializeAudioProgressBar(audioSource, time);
+                interactivePlaybackController.InitializeAudioProgressBar(audioSource, time);
+            }
         }
     }
 

@@ -21,6 +21,7 @@ public static class NekoMap
     public static float speed;
     public static float duration;
     public static float accuracy;
+    public static float size;
 
     [Header("Beat Map Binary Audio and Image")]
     public static byte[] backGroundImage;

@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class FrameUIScaler : MonoBehaviour
 {
-    RectTransform rectTransform;
+    public RectTransform mapRectTransform;
+    public RectTransform waveFormRectTransform;
+    public RectTransform framRectTransform;
 
-    private void Start()
-    {
-        rectTransform = GetComponent<RectTransform>();
-    }
     private void Update()
     {
-        int ms = Mathf.FloorToInt(NekoMap.audioDuration * 1000) + 1629;
-        rectTransform.sizeDelta = new Vector2(ms, rectTransform.sizeDelta.y);
+        int ms = Mathf.FloorToInt(NekoMap.audioDuration * 1000);
+        mapRectTransform.sizeDelta = new Vector2(ms, mapRectTransform.sizeDelta.y);
+        waveFormRectTransform.sizeDelta = new Vector2(ms, waveFormRectTransform.sizeDelta.y);
+        framRectTransform.sizeDelta = new Vector2(ms, framRectTransform.sizeDelta.y);
 
     }
 }

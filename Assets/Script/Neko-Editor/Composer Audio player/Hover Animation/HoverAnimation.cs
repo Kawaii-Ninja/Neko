@@ -13,7 +13,7 @@ public class HoverAnimation : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     // }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!isHolding) 
+        if (!isHolding)
         {
             animator.SetBool("Hovering", true);
         }
@@ -21,7 +21,7 @@ public class HoverAnimation : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!isHolding) 
+        if (!isHolding)
         {
             animator.SetBool("Hovering", false);
         }
@@ -29,7 +29,7 @@ public class HoverAnimation : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isHolding = true; 
+        isHolding = true;
         // animator.SetBool("Hovering", false);
         animator.SetBool("Holding", true);
     }

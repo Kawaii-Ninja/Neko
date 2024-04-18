@@ -8,10 +8,12 @@ public class ComposeSlideTabHoverAnimation : MonoBehaviour, IPointerEnterHandler
     bool isHovering = false;
     Coroutine smoothTransCoroutine;
 
-    private void Update()
-    {
-        Debug.Log(isHovering);
-    }
+
+
+    // private void Update()
+    // {
+    //     Debug.Log(isHovering);
+    // }
     public void OnPointerEnter(PointerEventData eventData)
     {
         isHovering = true;
@@ -32,21 +34,21 @@ public class ComposeSlideTabHoverAnimation : MonoBehaviour, IPointerEnterHandler
     }
     IEnumerator SmoothTrans()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(.5f);
         while (isHovering)
         {
             animator.SetBool("Hovering", true);
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
-        if (isHovering)
-        {
-            smoothTransCoroutine = StartCoroutine(SmoothTrans());
-        }
-        else
+        // yield return new WaitForSeconds(1f);
+        // if (isHovering)
+        // {
+        //     smoothTransCoroutine = StartCoroutine(SmoothTrans());
+        // }
+        // else
         {
             animator.SetBool("Hovering", false);
-            StopCoroutine(smoothTransCoroutine);
+            StopCoroutine(SmoothTrans());
         }
     }
 

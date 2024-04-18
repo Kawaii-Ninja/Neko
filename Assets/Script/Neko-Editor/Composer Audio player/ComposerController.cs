@@ -12,7 +12,7 @@ public class ComposerController : MonoBehaviour
 
     private void Update()
     {
-        if (!audioSource.isPlaying && !ComposerAudioPlayer.isAudioPause)
+        if (!AudioStatus())
         {
             Stop(audioSource);
         }
@@ -32,7 +32,13 @@ public class ComposerController : MonoBehaviour
     {
         ComposerAudioPlayer.isAudioPause = false;
         rawImage.texture = pause;
-        audio.Play();
+        {
+            if (audio.time == audio.clip.length)
+            {
+                audio.time = 0;
+            }
+            audio.Play();
+        }
     }
     public void Pause(AudioSource audio)
     {
@@ -44,7 +50,29 @@ public class ComposerController : MonoBehaviour
     public void Stop(AudioSource audio)
     {
         ComposerAudioPlayer.isAudioPause = true;
-        rawImage.texture = play;
-        // audio.Stop();
+        if (!audioSource.isPlaying)
+        {
+            rawImage.texture = play;
+        }
     }
+
+    private bool AudioStatus()
+    {
+        if (audioSource.time > 0)
+        {
+            if (audioSource.time <= audioSource.clip.length)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

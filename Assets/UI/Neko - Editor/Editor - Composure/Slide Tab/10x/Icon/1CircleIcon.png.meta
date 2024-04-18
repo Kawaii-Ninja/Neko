@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f5c3d5df514a714396fc09686119519
+guid: be8b2dc85eeaa9c47bd481002c7f8d27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3585474025309516295
-    second: Side-Tabs-button-circleAsset 10@4x_0
+      213: 5684889902830771171
+    second: 1CircleIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,9 +72,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Side-Tabs-button-circleAsset 10@4x_0
+      name: 1CircleIcon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 226
-        height: 226
+        width: 1030
+        height: 1030
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 702b6fd11a922c130800000000000000
-      internalID: 3585474025309516295
+      spriteID: 3ebde6d2f39c4ee40800000000000000
+      internalID: 5684889902830771171
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Side-Tabs-button-circleAsset 10@4x_0: 3585474025309516295
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
