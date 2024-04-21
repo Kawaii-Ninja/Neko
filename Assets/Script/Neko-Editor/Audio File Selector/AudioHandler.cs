@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.IO;
+using System.Collections;
 
 public class AudioHandler : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class AudioHandler : MonoBehaviour
                 m_AudioPlayer.Play(audioClip, audioPath);
                 audioLoader.feedBackText.text = audioPath.Replace("\\n", "\\N");
                 Debug.Log("audio playing");
+                StartCoroutine(Delay());
             }
         }
         catch (Exception e)
@@ -125,6 +127,15 @@ public class AudioHandler : MonoBehaviour
             // Unsupported audio format
             return "UNSUPPORTED_AUDIO_FILE_FORMAT";
         }
+
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1);
+        GenerateWaveForm.isAudioChanged = true;
+        yield return new WaitForSeconds(.5f);
+        StopCoroutine(Delay());
 
     }
 }

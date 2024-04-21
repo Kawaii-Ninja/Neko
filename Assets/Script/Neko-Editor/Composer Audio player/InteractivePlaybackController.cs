@@ -31,7 +31,6 @@ public class InteractivePlaybackController : MonoBehaviour, IPointerEnterHandler
             text = time;
         }
 
-        Debug.Log($"time = {this.time}");
         if (isHovering)
             ChangePlaybackPosistion();
 
@@ -51,12 +50,10 @@ public class InteractivePlaybackController : MonoBehaviour, IPointerEnterHandler
 
             if (scrollWheelInput > 0)
             {
-                Debug.Log("Scrolled Up");
                 time += Mathf.Clamp(timeChangeAmount, 0, audioSource.clip.length);
             }
             else
             {
-                Debug.Log("Scrolled Down");
                 time -= Mathf.Clamp(timeChangeAmount, 0, audioSource.clip.length);
             }
 
