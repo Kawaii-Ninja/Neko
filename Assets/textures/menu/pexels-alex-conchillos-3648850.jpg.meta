@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-alex-conchillos-3648850_0: -5537825437954855757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

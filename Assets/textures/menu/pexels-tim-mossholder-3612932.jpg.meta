@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-tim-mossholder-3612932_0: 5106936812808460926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

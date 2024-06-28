@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-adrien-olichon-2931286_0: -7065827265813416718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

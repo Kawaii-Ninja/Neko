@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-nothing-ahead-6800723_0: 5700892099357910519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

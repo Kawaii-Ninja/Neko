@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-skylar-kang-6044224_0: -3518413505718208549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

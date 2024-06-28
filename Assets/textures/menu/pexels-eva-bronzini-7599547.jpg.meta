@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-eva-bronzini-7599547_0: 4584275980524801781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
